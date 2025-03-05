@@ -6,7 +6,7 @@ const { studentRouter } = require("./routes/student");
 const DB = require("./DB/dbConfig");
 const { sessionRouter } = require("./routes/session");
 const { winterSummerRouter } = require("./routes/winterSummer");
-
+const { teacherRouter } = require('./routes/teacher');
 
 const app = express();
 app.use(bodyParser.json());
@@ -17,6 +17,7 @@ app.use("/course", courseRouter);
 app.use("/student", studentRouter);
 app.use("/session",sessionRouter);
 app.use("/winterSummer", winterSummerRouter);
+app.use("/teacher",teacherRouter)
 
 DB.connect(err => {
     if (err) console.error("Database connection failed:", err);
