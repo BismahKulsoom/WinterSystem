@@ -1,0 +1,7 @@
+const express = require("express");
+const { assignCoursesToTeacher } = require("../controller/assigncoursetoteacher");
+const assignRouter = express.Router();
+
+
+assignRouter.post("/assign", assignCoursesToTeacher)
+module.exports = {assignRouter};

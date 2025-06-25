@@ -19,4 +19,23 @@ const saveWinterSummerCourses = async (req, res) => {
     });
 };
 
-module.exports = { saveWinterSummerCourses };
+const getWinterSummerCourses = async (req, res) => {
+    const query = `
+        SELECT DISTINCT c.courseId, c.course_code, c.course_title, ws.sessionId, s.sessionName ,s.year
+        FROM wintersummerform ws
+        JOIN session s ON ws.sessionId = s.sessionId
+        JOIN course c ON ws.courseId = c.courseId
+        
+    `;
+
+    DB.query(query, (err, results) => {
+        if (err) return res.status(500).json({ error: "Failed to fetch teachers" });
+        return res.json(results.length > 0 ? results : "No session and courses found");
+    });
+};
+
+
+
+
+
+module.exports = { saveWinterSummerCourses,getWinterSummerCourses };

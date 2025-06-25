@@ -3,6 +3,7 @@ import './App.css';
 import HomePage from './Components/HomePage';
 import AssignCourseToTeacher from './Components/AssignCourseToTeacher';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import CourseWiseReport from './Components/CourseWiseReport';
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
   <Routes>
     <Route path="/" element={<HomePage/>}/>
     <Route path="assignCourse"element={<AssignCourseToTeacher/>}/>
+    <Route path="coursereport" element={<CourseWiseReport/>}/>.
   </Routes>
   </BrowserRouter>
 
